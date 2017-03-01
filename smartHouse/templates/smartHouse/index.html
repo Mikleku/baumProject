@@ -1,0 +1,10 @@
+<form  action="{% url 'smartHouse:result' %}"  method="post">
+   {%  csrf_token %}
+    <ul>
+    {% for room in rooms_list %}
+        <li> <input   type="checkbox"   name="rooms" value="{{ room.pk }}"  {% if room.state %} checked {% endif %}> {{ room.name }}
+
+    {%  endfor %}
+    </ul>
+        <input type="submit" value="Vote" />
+</form>
